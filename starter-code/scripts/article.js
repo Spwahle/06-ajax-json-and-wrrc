@@ -72,10 +72,12 @@ Article.fetchAll = function() {
     $.getJSON('./data/hackerIpsum.json')
     //creating a then function promise?!?! I don't really understand this
     .then(function(data) {
+    //pulling raw data from localStorage and stringify it for use to append
+
+      localStorage.rawData = JSON.stringify(data)
+
     //instantiate the articles
       Article.loadAll(rawData);
-      //pulling raw data from localStorage and stringify it for use to append
-      localStorage.rawData = JSON.stringify(data)
       //appending to #articles again
       articleView.initIndexPage()
     })
